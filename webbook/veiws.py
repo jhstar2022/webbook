@@ -3,11 +3,6 @@ from django.shortcuts import render
 from django.views import View
 
 
-def index(re):
-    return HttpResponse("hello")
-
-
-class Index(View):
+class index(View):
     def get(self, request):
         return render(request, 'webbook/index.html')
-    
