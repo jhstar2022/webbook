@@ -31,6 +31,6 @@ def write(request):
             post = form.save()
             return redirect('webbook:list')
     else:
-        form =PostForm()
+        form = PostForm()
         return render(request, 'webbook/write.html',{'form': form})
 
