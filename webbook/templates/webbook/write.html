@@ -6,6 +6,6 @@
     <form action="{% url 'webbook:write' %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" class="btn btn-outline-success" value="{% trans 'Submit' %}">
+        <input type="submit" class="btn btn-outline-success" value="{% trans '저장' %}">
     </form>
 {% endblock %}
