@@ -23,16 +23,19 @@
                 <tbody>
                     <tr>
                         <td>{{ post.id }}</td>
-                        <td><a>{{ post.title }}</a></td>
-                        <td><a>{{ post.content }}</a></td>
-                        <td><a>{{ post.created_at }}</a></td>
-                        <td><a>{{ post.updated_at }}</a></td>
+                        <td><a href="{% url 'webbook:detail' pk=post.pk %}">{{ post.title }}</a></td>
+                        <td><a href="{% url 'webbook:detail' pk=post.pk %}">{{ post.content }}</a></td>
+                        <td><a href="{% url 'webbook:detail' pk=post.pk %}">{{ post.created_at }}</a></td>
+                        <td><a href="{% url 'webbook:detail' pk=post.pk %}">{{ post.updated_at }}</a></td>
                     </tr>    
                 </tbody>
     
             {% endfor %}
         {% endif %}
     </table>
+    <a href="{% url 'webbook:write' %}" class="btn"
+          >작성하러가기</a
+        >
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </body>

@@ -8,4 +8,12 @@ urlpatterns = [
     path('', views.Index.as_view(), name='list'),
     path('index/', views.Index2.as_view(), name='list2'),
     path('write/', views.write, name='write'),
+    # 글 상세 조회
+    path("detail/ ", views.DetailView.as_view(), name='detail'),
+    # 글 작성
+    # path("write/", views.Write.as_view(), name='write'),
+    # 글 수정
+    path("detail/<int:pk>/edit/", views.Update.as_view(), name='edit'),
+    # 글 삭제
+    path("detail/<int:pk>/delete/", views.Delete.as_view(), name='delete'),
 ]

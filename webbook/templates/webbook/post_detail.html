@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+
+    <h2>{% trans 'Title:' %} {{ post_title }}</h2>
+
+    {% if post_writer == post_writer %}
+        <a href="{% url 'webbook:edit' pk=post_id %}" class="btn">{% trans 'Edit' %}</a>
+        <form action="{% url 'webbook:delete' pk=post_id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="{% trans 'Delete' %}" class="btn">
+        </form>
+    {% endif %}
+
+    <p>{% trans 'Content:' %} {{ post_content }}</p>
+    <p>{% trans 'Writer:' %} {{ post_writer }}</p>
+    <p>{% trans 'Date:' %} {{ post_created_at }}</p>
+    <hr>
+
+
+{% endblock %}
