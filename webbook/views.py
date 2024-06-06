@@ -14,49 +14,29 @@ class Index(View):
         return render(request, 'webbook/index.html', context)
 
 
-class Index2(View):
+
+class Write(View):
+    
     def get(self, request):
-        posts = Post.objects.all()
-        context = {
-            'posts': posts,
-        }
-        return render(request, 'webbook/index2.html', context)
-
-
-
-def write(request):
-    if request.method =='POST':
-        form = PostForm(request.POST)
-        if form.is_valid():
-            post = form.save()
-            return redirect('webbook:list')
-    else:
         form = PostForm()
-
-    return render(request, 'webbook/write.html',{'form': form})
-
-# class Write(View):
+        context = {
+            'form': form,
+            "title": "Blog"
+        }
+        return render(request, 'webbook/post_form.html', context)
     
-#     def get(self, request):
-#         form = PostForm()
-#         context = {
-#             'form': form,
-#             "title": "Blog"
-#         }
-#         return render(request, 'webbook/post_form.html', context)
-    
-#     def post(self, request):
-#         form = PostForm(request.POST)
+    def post(self, request):
+        form = PostForm(request.POST)
         
-#         if form.is_valid():
-#             post = form.save(commit=False)
-#             return redirect('webbook:list')
+        if form.is_valid():
+            post = form.save(commit=False)
+            return redirect('webbook:list')
         
-#         context = {
-#             'form': form
-#         }
+        context = {
+            'form': form
+        }
         
-#         return render(request, 'webbook/post_form.html', context)
+        return render(request, 'webbook/post_form.html', context)
 
 
 class Update(View):
@@ -101,9 +81,6 @@ class DetailView(View):
     
     def get(self, request, pk):
         post = Post.objects.get(pk=pk)
-        
-
-        
         context = {
             "title": "webbook",
             'post_id': pk,
