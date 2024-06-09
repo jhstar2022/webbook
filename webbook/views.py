@@ -30,6 +30,8 @@ class Write(View):
         
         if form.is_valid():
             post = form.save(commit=False)
+            post.writer = request.user
+            post.save()
             return redirect('webbook:list')
         
         context = {
@@ -85,6 +87,7 @@ class DetailView(View):
             "title": "webbook",
             'post_id': pk,
             'post_title': post.title,
+            'post_writer': post.writer,
             'post_content': post.content,
             'post_created_at': post.created_at,
         }
