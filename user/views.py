@@ -25,12 +25,27 @@ class Registration(View):
         }
         return render(request, 'user/user_register.html', context)
     
-    def post(self, request):
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            return redirect('user:login')
+    
+    ## 중복확인 건너띔
+    # def post(self, request):
+    #     form = RegisterForm(request.POST)
+    #     if form.is_valid():
+    #         user = form.save()
+    #         return redirect('user:login')
+        
+    #     else:
+    #         form = RegisterForm()
+    #     return render(request, 'user/user_register.html', {'form': form})
 
+    def post(self, request):
+        if request.method == 'POST':
+            form = RegisterForm(request.POST)
+            if form.is_valid():
+                user = form.save()
+                return redirect('user:login')
+        else:
+            form = RegisterForm()
+        return render(request, 'user/user_register.html', {'form': form})
 
 ### Login
 class Login(View):
@@ -47,7 +62,7 @@ class Login(View):
         
     def post(self, request):
         if request.user.is_authenticated:
-            return redirect('blog:list')
+            return redirect('webbook:list')
         
         form = LoginForm(request, request.POST)
         if form.is_valid():

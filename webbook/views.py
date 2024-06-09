@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post
 from .forms import PostForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 
 class Index(View):
@@ -15,7 +17,7 @@ class Index(View):
 
 
 
-class Write(View):
+class Write(LoginRequiredMixin, View):
     
     def get(self, request):
         form = PostForm()

@@ -13,6 +13,18 @@
   </head>
   <body>
     <div class="container">
+      {% if user.is_authenticated %}
+        <p>
+          {% trans 'Welcome,' %} {{ user.email }}
+        </p>
+        <a href="{% url 'user:logout' %}" class="btn">Logout</a>
+      {% else %}
+        <p>
+          {% trans 'Please, Login' %}
+        </p>
+        <a href="{% url 'user:login' %}" class="btn">Login</a>
+      {% endif %}
+
       <h1><a href="{% url 'webbook:list' %}">Blog</a></h1>
 
       {% block content %}
