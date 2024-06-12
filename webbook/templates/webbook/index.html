@@ -10,33 +10,35 @@
     <input type="submit" value="글 작성" />
 </form>
 
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th scope='col'>순서</th>
-                <th scope='col'>제목</th>
-                <th scope='col'>내용</th>
-                <th scope='col'>작성자</th>
-                <th scope='col'>작성시간</th>
-                <th scope='col'>수정시간</th>
-            </tr>    
-        </thead>        
-        {% if posts %}
-            {% for post in posts %}
-                <tbody>
-                    <tr>
-                        <td>{{ post.id }}</td>
-                        <td><a href="{% url 'webbook:detail' pk=post.pk %}">{{ post.title }}</a></td>
-                        <td><a href="{% url 'webbook:detail' pk=post.pk %}">{{ post.content }}</a></td>
-                        <td><a href="{% url 'webbook:detail' pk=post.pk %}">{{ post.writer }}</a></td>
-                        <td><a href="{% url 'webbook:detail' pk=post.pk %}">{{ post.created_at }}</a></td>
-                        <td><a href="{% url 'webbook:detail' pk=post.pk %}">{{ post.updated_at }}</a></td>
-                    </tr>    
-                </tbody>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope='col'>순서</th>
+            <th scope='col'>제목</th>
+            <th scope='col'>내용</th>
+            <th scope='col'>작성자</th>
+            <th scope='col'>작성시간</th>
+            <th scope='col'>수정시간</th>
+        </tr>    
+    </thead>        
+    {% if posts %}
+        {% for post in posts %}
+            <tbody>
+                <tr>
+                    <td>{{ post.id }}</td>
+                    <td><a href="{% url 'webbook:detail' pk=post.pk %}">{{ post.title }}</a></td>
+                    <td><a href="{% url 'webbook:detail' pk=post.pk %}">{{ post.content }}</a></td>
+                    <td><a href="{% url 'webbook:detail' pk=post.pk %}">{{ post.writer }}</a></td>
+                    <td><a href="{% url 'webbook:detail' pk=post.pk %}">{{ post.created_at }}</a></td>
+                    <td><a href="{% url 'webbook:detail' pk=post.pk %}">{{ post.updated_at }}</a></td>
+                </tr>    
+            </tbody>
+
+        {% endfor %}
     
-            {% endfor %}
-        {% endif %}
-    </table>
-    
+</table>
+    {% else %}
+    <p>작성된 게시물이 없습니다.</p>
+    {% endif %}
 
 {% endblock %}
