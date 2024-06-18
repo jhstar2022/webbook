@@ -19,8 +19,8 @@
       <h2>webbook</h2>
     <button type="button" class="collapsible" onclick="collapse(this);">메뉴</button>
     <div class="content">
-        <a href="{% url 'webbook:list' %}">게시판 리스트</a>
-        <a href="{% url 'webbook:write' %}">게시판 작성</a>
+        <p><a href="{% url 'webbook:list' %}">게시판 리스트</a></p>
+        <p><a href="{% url 'webbook:write' %}">게시판 작성</a></p>
     </div>
     <div class="container">
       {% if user.is_authenticated %}
