@@ -15,7 +15,8 @@ from .forms import RegisterForm, LoginForm
 class Registration(View):
     def get(self, request):
         if request.user.is_authenticated:
-            return redirect('webbook:list')
+            logout(request)
+            return redirect('user:register')
         # 회원가입 페이지
         # 정보를 입력할 폼을 보여주어야 한다.
         form = RegisterForm()
