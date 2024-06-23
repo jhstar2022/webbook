@@ -97,7 +97,3 @@ class DetailView(View):
         return render(request, 'webbook/post_detail.html', context)
 
 
-class DD(View):
-    
-    def get(self, request):
-        return render(request, 'webbook/post_list.html')
