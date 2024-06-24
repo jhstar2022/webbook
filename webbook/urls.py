@@ -5,7 +5,7 @@ from . import views
 app_name='webbook'
 
 urlpatterns = [
-    path('list/', views.Index.as_view(), name='list'),
+    path('', views.Index.as_view(), name='list'),
     # 글 상세 조회
     path("detail/<int:pk>/ ", views.DetailView.as_view(), name='detail'),
     # 글 작성
