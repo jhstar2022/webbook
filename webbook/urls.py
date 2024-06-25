@@ -14,5 +14,4 @@ urlpatterns = [
     path("detail/<int:pk>/edit/", views.Update.as_view(), name='edit'),
     # 글 삭제
     path("detail/<int:pk>/delete/", views.Delete.as_view(), name='delete'),
-
 ]
