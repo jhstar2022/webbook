@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}{{ chapter.title }}{% endblock %}
+
+{% block content %}
+    <h2>{{ chapter.title }}</h2>
+    <p>{{ chapter.content }}</p>
+    <a href="{% url 'novel_detail' chapter.novel.id %}">소설로 돌아가기</a>
+{% endblock %}

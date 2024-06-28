@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{{ novel.title }}{% endblock %}
+
+{% block content %}
+    <h2>{{ novel.title }}</h2>
+    <p>{{ novel.description }}</p>
+    <h3>회차 목록</h3>
+    <ul>
+        {% for chapter in novel.chapters.all %}
+            <li><a href="{% url 'chapter_detail' novel.id chapter.number %}">{{ chapter.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

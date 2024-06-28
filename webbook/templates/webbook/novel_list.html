@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}소설 목록{% endblock %}
+
+{% block content %}
+    <h2>소설 목록</h2>
+    <ul>
+        {% for novel in novels %}
+            <li><a href="{% url 'novel_detail' novel.id %}">{{ novel.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
