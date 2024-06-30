@@ -4,7 +4,6 @@ from . import views
 app_name = 'user'
 
 urlpatterns = [
-    # user/
     # 회원가입
     path('register/', views.Registration.as_view(), name='register'),
     # 로그인
