@@ -5,11 +5,6 @@ from django.contrib.auth import authenticate, login, logout
 # from .models import User
 from .forms import RegisterForm, LoginForm
 
-# Create your views here.
-# user 관련된 기능
-# 회원가입
-# 로그인
-# 로그아웃
 
 ### Registration
 class Registration(View):
