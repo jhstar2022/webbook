@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
 from django.contrib.auth import authenticate, login, logout
-# from .models import User
 from .forms import RegisterForm, LoginForm
 
 
