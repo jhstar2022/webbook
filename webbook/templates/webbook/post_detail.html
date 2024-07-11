@@ -5,7 +5,7 @@
 
     <h2>{% trans 'Title:' %} {{ post_title }}</h2>
 
-    {% if post_writer == post_writer %}
+    {% if post_writer == request.user %}
         <a href="{% url 'webbook:edit' pk=post_id %}" class="btn">{% trans 'Edit' %}</a>
         <form action="{% url 'webbook:delete' pk=post_id %}" method="post">
             {% csrf_token %}
