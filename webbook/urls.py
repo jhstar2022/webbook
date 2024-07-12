@@ -14,4 +14,12 @@ urlpatterns = [
     path("detail/<int:pk>/edit/", views.Update.as_view(), name='edit'),
     # 글 삭제
     path("detail/<int:pk>/delete/", views.Delete.as_view(), name='delete'),
+    path('novel/<int:novel_id>/', views.novel_detail, name='novel_detail'),
+    path('novel/<int:novel_id>/chapter/<int:chapter_number>/', views.chapter_detail, name='chapter_detail'),
+    path('create_novel/', views.create_novel, name='create_novel'),
+    path('update_novel/<int:novel_id>/', views.update_novel, name='update_novel'),
+    path('delete_novel/<int:novel_id>/', views.delete_novel, name='delete_novel'),
+    path('novel/<int:novel_id>/create_chapter/', views.create_chapter, name='create_chapter'),
+    path('novel/<int:novel_id>/update_chapter/<int:chapter_number>/', views.update_chapter, name='update_chapter'),
+    path('novel/<int:novel_id>/delete_chapter/<int:chapter_number>/', views.delete_chapter, name='delete_chapter'),
 ]

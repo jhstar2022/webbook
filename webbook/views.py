@@ -101,13 +101,13 @@ class DetailView(View):
 @login_required
 def novel_list(request):
     novels = Novel.objects.filter(user_permissions__user=request.user, user_permissions__can_read=True)
-    return render(request, 'novels/novel_list.html', {'novels': novels})
+    return render(request, 'webbook/novel_list.html', {'novels': novels})
 
 @login_required
 def novel_detail(request, novel_id):
     novel = get_object_or_404(Novel, id=novel_id)
     permission = get_object_or_404(UserNovelPermission, user=request.user, novel=novel, can_read=True)
-    return render(request, 'novels/novel_detail.html', {'novel': novel})
+    return render(request, 'webbook/novel_detail.html', {'novel': novel})
 
 @login_required
 def chapter_detail(request, novel_id, chapter_number):
@@ -128,7 +128,7 @@ def create_novel(request):
             return redirect('novel_detail', novel_id=novel.id)
     else:
         form = NovelForm()
-    return render(request, 'novels/novel_form.html', {'form': form})
+    return render(request, 'webbook/novel_form.html', {'form': form})
 
 @login_required
 def update_novel(request, novel_id):
@@ -140,7 +140,7 @@ def update_novel(request, novel_id):
             return redirect('novel_detail', novel_id=novel.id)
     else:
         form = NovelForm(instance=novel)
-    return render(request, 'novels/novel_form.html', {'form': form})
+    return render(request, 'webbook/novel_form.html', {'form': form})
 
 @login_required
 def delete_novel(request, novel_id):
@@ -148,7 +148,7 @@ def delete_novel(request, novel_id):
     if request.method == 'POST':
         novel.delete()
         return redirect('novel_list')
-    return render(request, 'novels/novel_confirm_delete.html', {'novel': novel})
+    return render(request, 'webbook/novel_confirm_delete.html', {'novel': novel})
 
 @login_required
 def create_chapter(request, novel_id):
