@@ -17,7 +17,6 @@ class Index(View):
         return render(request, 'webbook/index.html', context)
 
 
-
 class Write(LoginRequiredMixin, View):
     
     def get(self, request):
