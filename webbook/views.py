@@ -1,5 +1,4 @@
 from django.views import View
-from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post, Novel, Chapter, UserNovelPermission
 from .forms import PostForm
