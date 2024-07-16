@@ -12,7 +12,6 @@ class Registration(View):
             logout(request)
             return redirect('user:register')
         # 회원가입 페이지
-        # 정보를 입력할 폼을 보여주어야 한다.
         form = RegisterForm()
         context = {
             'form': form,
