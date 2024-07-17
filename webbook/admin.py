@@ -3,8 +3,6 @@ from .models import Post
 
 from .models import User, Genre, Novel, Chapter, Comment, ReadingHistory, NovelLike, ChapterLike, UserNovelPermission
 
-# Register your models here.
-
 
 @admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
