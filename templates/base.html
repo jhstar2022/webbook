@@ -23,6 +23,8 @@
         <p><a href="{% url 'user:login' %}">로그인</a></p>
         <p><a href="{% url 'webbook:list' %}">게시판 리스트</a></p>
         <p><a href="{% url 'webbook:write' %}">게시판 작성</a></p>
+        <p><a href="{% url 'webbook:novel_list' %}">소설 목록</a></p>
+        <p><a href="{% url 'webbook:create_novel' %}">글쓰기</a></p>
     </div>
     <div class="container">
       {% if user.is_authenticated %}
