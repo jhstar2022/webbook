@@ -16,6 +16,7 @@ urlpatterns = [
     path("detail/<int:pk>/delete/", views.Delete.as_view(), name='delete'),
     # 책 리스트
     path('novel_list', views.novel_list, name='novel_list'),
+    # 책 상세
     path('novel/<int:novel_id>/', views.novel_detail, name='novel_detail'),
     path('novel/<int:novel_id>/chapter/<int:chapter_number>/', views.chapter_detail, name='chapter_detail'),
     path('create_novel/', views.create_novel, name='create_novel'),
