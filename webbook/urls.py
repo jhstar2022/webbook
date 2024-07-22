@@ -20,6 +20,7 @@ urlpatterns = [
     path('novel/<int:novel_id>/', views.novel_detail, name='novel_detail'),
     # 챕터 상세
     path('novel/<int:novel_id>/chapter/<int:chapter_number>/', views.chapter_detail, name='chapter_detail'),
+    # 책 작성
     path('create_novel/', views.create_novel, name='create_novel'),
     path('update_novel/<int:novel_id>/', views.update_novel, name='update_novel'),
     path('delete_novel/<int:novel_id>/', views.delete_novel, name='delete_novel'),
