@@ -24,6 +24,7 @@ urlpatterns = [
     path('create_novel/', views.create_novel, name='create_novel'),
     # 책 수정
     path('update_novel/<int:novel_id>/', views.update_novel, name='update_novel'),
+    
     path('delete_novel/<int:novel_id>/', views.delete_novel, name='delete_novel'),
     path('novel/<int:novel_id>/create_chapter/', views.create_chapter, name='create_chapter'),
     path('novel/<int:novel_id>/update_chapter/<int:chapter_number>/', views.update_chapter, name='update_chapter'),
