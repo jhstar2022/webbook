@@ -28,7 +28,7 @@ urlpatterns = [
     path('delete_novel/<int:novel_id>/', views.delete_novel, name='delete_novel'),
     # 챕터 생성
     path('novel/<int:novel_id>/create_chapter/', views.create_chapter, name='create_chapter'),
-    
+    # 챕터 수정
     path('novel/<int:novel_id>/update_chapter/<int:chapter_number>/', views.update_chapter, name='update_chapter'),
     path('novel/<int:novel_id>/delete_chapter/<int:chapter_number>/', views.delete_chapter, name='delete_chapter'),
 ]
